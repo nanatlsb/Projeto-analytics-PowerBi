@@ -1,23 +1,75 @@
-# Projeto-analytics-PowerBi
+# Portfólio de Dados - Dashboard Power BI
 
-Dashboard executivo focado em performance de vendas, desenvolvido para análise de métricas de faturamento, metas (KPIs) e distribuição geográfica.
+Este projeto consiste em um site de portfólio desenvolvido para apresentar um dashboard de análise de vendas criado no Power BI.  
+O site foi desenvolvido utilizando HTML, CSS e JavaScript para organizar e exibir informações sobre o projeto, além de integrar a visualização do dashboard interativo.
+
+O objetivo é demonstrar habilidades em análise de dados, criação de dashboards e desenvolvimento web para apresentação de projetos de dados.
+
+---
 
 ## 🚀 Tecnologias Utilizadas
-* Power BI Desktop
-* DAX (Data Analysis Expressions)
-* Figma (UI/UX Design do Background)
-* Excel (Fonte de dados)
+
+- HTML5  
+- CSS3  
+- JavaScript  
+- Power BI Desktop  
+- DAX (Data Analysis Expressions)  
+- Figma (prototipação de layout e design de dashboards)  
+- Excel (fonte de dados)
+
+---
 
 ## 💡 Funcionalidades
-* **Visão Geral:** KPIs de faturamento total, ticket médio e contagem de clientes.
-* **Análise de Performance:** Ranking de vendedores e categorias mais rentáveis.
-* **Geolocalização:** Mapa interativo com distribuição de vendas por região brasileira.
-* **UI/UX:** Design moderno com suporte a navegação por botões laterais e modo Dark/Purple.
+
+### 🌐 Portfólio Web
+- Estrutura de site para apresentação de projetos de análise de dados.
+- Layout responsivo com menu lateral de navegação.
+- Seção "Sobre" com descrição profissional.
+- Seção de projetos com preview de dashboards.
+
+### 📊 Dashboard de Vendas
+- **Visão Geral:** KPIs como faturamento total, ticket médio e número de clientes.
+- **Análise de Performance:** comparação entre vendedores e categorias de produtos.
+- **Visualização de dados:** gráficos interativos para análise de resultados.
+- **Integração com Power BI:** dashboard incorporado ao site para visualização direta.
+
+### 🎨 Interface e Experiência
+- Layout inspirado em dashboards analíticos.
+- Design desenvolvido com apoio de prototipação no Figma.
+- Navegação simples e intuitiva para visualização do projeto.
+
+---
 
 ## 📸 Screenshots
+
+### Visão Geral do Dashboard
 ![Visão Geral](./screens/visao_geral.png)
+
+### Performance de Vendas
 ![Performance](./screens/performance.png)
 
-## 🛠️ Como visualizar
-1. Baixe o arquivo `.pbix` deste repositório.
-2. Abra no Power BI Desktop.
+---
+
+## 🛠️ Como visualizar o projeto
+
+### Visualizar o site
+1. Baixe ou clone este repositório
+2. Abra o arquivo `index.html` no navegador
+
+### Visualizar o dashboard no Power BI
+1. Baixe o arquivo `.pbix` disponível no repositório
+2. Abra no **Power BI Desktop**
+
+---
+
+## 👩‍💻 Autora
+
+**Thainá Lopes**
+
+Analista de Dados com experiência em:
+- Power BI
+- SQL
+- Python
+- DAX
+- Desenvolvimento Front-end
+- Prototipação de dashboards e interfaces no Figma
