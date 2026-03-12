@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio · Thainá Lopes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #08080f;
+  --surface: #0f0f1a;
+  --card: #13131f;
+  --border: rgba(255,255,255,0.06);
+  --accent: #b8f058;
+  --purple: #7c4dff;
+  --purple-light: #a67cff;
+  --text: #e8e8f2;
+  --muted: #6b6b88;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Outfit', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  display: flex;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 40px 28px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.sidebar-top {}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.sidebar-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.sidebar h2 span {
+  display: block;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--muted);
+  font-family: var(--sans);
+  margin-top: 2px;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.sidebar li a:hover,
+.sidebar li a.active {
+  color: var(--text);
+  background: rgba(255,255,255,0.04);
+  border-color: var(--border);
+}
+
+.sidebar li a .nav-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.sidebar li a:hover .nav-icon,
+.sidebar li a.active .nav-icon {
+  opacity: 1;
+}
+
+.sidebar-bottom {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 6px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── MAIN CONTENT ── */
+.content {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+#sobre {
+  position: relative;
+  padding: 100px 64px 80px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,77,255,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-glow2 {
+  position: absolute;
+  bottom: -50px;
+  left: 100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,240,88,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(124,77,255,0.12);
+  border: 1px solid rgba(124,77,255,0.25);
+  color: var(--purple-light);
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+}
+
+#sobre h1 {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+#sobre h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+#sobre .lead {
+  max-width: 520px;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+  transition: all 0.2s;
+}
+
+.skill-chip:hover {
+  border-color: rgba(124,77,255,0.4);
+  color: var(--purple-light);
+  background: rgba(124,77,255,0.08);
+}
+
+/* ── PROJECTS ── */
+#projetos {
+  padding: 72px 64px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.section-label::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.section-label h2 {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.project-card:hover {
+  border-color: rgba(124,77,255,0.3);
+}
+
+.project-header {
+  padding: 28px 32px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.project-meta h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.project-meta p {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 440px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.tag {
+  background: rgba(124,77,255,0.1);
+  border: 1px solid rgba(124,77,255,0.2);
+  color: var(--purple-light);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+}
+
+/* ── CAROUSEL ── */
+.carousel-container {
+  position: relative;
+  background: #000;
+  border-top: 1px solid var(--border);
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.ativo {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.prev, .next {
+  pointer-events: all;
+  width: 40px;
+  height: 40px;
+  background: rgba(8,8,15,0.8);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.prev:hover, .next:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+.indicadores {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dot.ativo {
+  background: var(--accent);
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* ── PROJECT FOOTER ── */
+.project-footer {
+  padding: 20px 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #0a0f00;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary:hover {
+  background: #cef76a;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(184,240,88,0.2);
+}
+
+.btn-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-close:hover {
+  background: rgba(255,59,48,0.1);
+  border-color: rgba(255,59,48,0.3);
+  color: #ff3b30;
+}
+
+#dashboard {
+  border-top: 1px solid var(--border);
+  padding: 24px 32px;
+  background: rgba(0,0,0,0.3);
+}
+
+#dashboard iframe {
+  width: 100%;
+  height: 580px;
+  border: none;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+/* ── CONTACT ── */
+#contato {
+  padding: 72px 64px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-card:hover {
+  border-color: rgba(124,77,255,0.4);
+  background: rgba(124,77,255,0.05);
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  font-size: 22px;
+}
+
+.contact-card strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.contact-card span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.contact-arrow {
+  margin-top: auto;
+  color: var(--muted);
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.contact-card:hover .contact-arrow {
+  transform: translate(3px, -3px);
+  color: var(--purple-light);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+
+/* ── ANIMATIONS ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#sobre h1 { animation: slideUp 0.7s ease both; }
+#sobre .lead { animation: slideUp 0.7s 0.1s ease both; }
+.skills-row { animation: slideUp 0.7s 0.2s ease both; }
+
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sidebar-top">
+    <div class="sidebar-logo">
+      <div class="sidebar-avatar">T</div>
+      <h2>Thainá Lopes <span>Analista de Dados</span></h2>
+    </div>
+    <ul>
+      <li>
+        <a href="#sobre" class="active">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Sobre
+        </a>
+      </li>
+      <li>
+        <a href="#projetos">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Projetos
+        </a>
+      </li>
+      <li>
+        <a href="#contato">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Contato
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar-bottom">
+    <span class="status-dot"></span>Disponível para projetos
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- HERO -->
+  <section id="sobre">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-tag">
+      ✦ Portfólio de Dados
+    </div>
+    <h1>Dados que<br><em>contam histórias</em></h1>
+    <p class="lead">
+      Sou Analista de Dados com experiência em criação de dashboards e análise de dados utilizando Power BI, SQL, Python e DAX. Tenho interesse em transformar dados em insights estratégicos que apoiem a tomada de decisão nas empresas.
+
+Durante minha formação em Análise e Desenvolvimento de Sistemas, desenvolvi projetos voltados à análise de dados, modelagem de informações e criação de visualizações interativas. Possuo experiência na construção de dashboards no Power BI, desenvolvimento de métricas e indicadores utilizando DAX e análise exploratória de dados.
+
+Também tenho experiência com desenvolvimento Front-end e prototipação de interfaces utilizando Figma, criando layouts para sites, dashboards e aplicações. Isso me permite unir análise de dados com design de interfaces, desenvolvendo soluções visuais claras, funcionais e orientadas à experiência do usuário.
+
+Sou uma profissional curiosa, analítica e em constante aprendizado, buscando sempre evoluir minhas habilidades em dados, tecnologia e desenvolvimento de soluções que gerem valor através da informação.
+
+    </p>
+    <div class="skills-row">
+      <span class="skill-chip">Power BI</span>
+      <span class="skill-chip">Python</span>
+      <span class="skill-chip">SQL</span>
+      <span class="skill-chip">Modelagem de Dados</span>
+      <span class="skill-chip">DAX</span>
+      <span class="skill-chip">ETL</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projetos">
+    <div class="section-label">
+      <h2>Projetos</h2>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-meta">
+          <h3>Dashboard de Vendas</h3>
+          <p>Análise completa de faturamento, clientes e performance comercial com KPIs estratégicos em tempo real.</p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">DAX</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel">
+          <img class="slide ativo" src="Visão geral.png" alt="Visão Geral">
+          <img class="slide" src="Performance.png" alt="Performance">
+        </div>
+        <div class="carousel-nav">
+          <button class="prev" onclick="mudarSlide(-1)">❮</button>
+          <button class="next" onclick="mudarSlide(1)">❯</button>
+        </div>
+        <div class="indicadores">
+          <span class="dot ativo" onclick="irParaSlide(0)"></span>
+          <span class="dot" onclick="irParaSlide(1)"></span>
+        </div>
+      </div>
+
+      <div class="project-footer">
+        <button class="btn-primary" onclick="mostrarDashboard()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Acessar Dashboard
+        </button>
+        <span style="font-size:12px; color:var(--muted);">Power BI · Análise de Vendas</span>
+      </div>
+
+      <div id="dashboard" style="display:none;">
+        <div style="display:flex; justify-content:flex-end; margin-bottom:12px;">
+          <button class="btn-close" onclick="fecharDashboard()">✕ Fechar</button>
+        </div>
+        <iframe
+          title="dash projeto vendas"
+          src="https://app.powerbi.com/reportEmbed?reportId=ea315cb9-af5f-4b44-87f1-681917699352&autoAuth=true&ctid=38ae2f02-5710-4e12-80bb-83600c3fdf1e"
+          allowFullScreen="true">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contato">
+    <div class="section-label">
+      <h2>Contato</h2>
+    </div>
+    <div class="contact-grid">
+      <a href="https://www.linkedin.com/in/thain%C3%A1-lopes-2b49b7210" target="_blank" class="contact-card">
+        <span class="contact-icon">💼</span>
+        <div>
+          <strong>LinkedIn</strong>
+          <span>Thainá Lopes</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="mailto:lopesthaina2004@gmail.com" class="contact-card">
+        <span class="contact-icon">📧</span>
+        <div>
+          <strong>E-mail</strong>
+          <span>lopesthaina2004@gmail.com</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="https://github.com/nanatlsb" target="_blank" class="contact-card">
+        <span class="contact-icon">💻</span>
+        <div>
+          <strong>GitHub</strong>
+          <span>nanatlsb</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function mostrarDashboard() {
+  document.getElementById("dashboard").style.display = "block";
+  document.getElementById("dashboard").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function fecharDashboard() {
+  document.getElementById("dashboard").style.display = "none";
+}
+
+let slideAtual = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function mostrarSlide(n) {
+  slides.forEach(s => s.classList.remove("ativo"));
+  dots.forEach(d => d.classList.remove("ativo"));
+  slideAtual = (n + slides.length) % slides.length;
+  slides[slideAtual].classList.add("ativo");
+  dots[slideAtual].classList.add("ativo");
+}
+function mudarSlide(d) { mostrarSlide(slideAtual + d); }
+function irParaSlide(n) { mostrarSlide(n); }
+mostrarSlide(0);
+
+// Active nav link on scroll
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".sidebar a");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute("id");
+  });
+  navLinks.forEach(a => {
+    a.classList.remove("active");
+    if (a.getAttribute("href") === "#" + current) a.classList.add("active");
+  });
+});
+</script>
+</body>
+</html>
